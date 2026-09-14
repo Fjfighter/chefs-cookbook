@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
 import type { Recipe } from '../types/recipe';
-import { formatStars } from '../utils/recipes';
+import { formatStars, getRecipeImageUrl } from '../utils/recipes';
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
   const n = recipe.nutritionPerServing;
+  const imageSrc = getRecipeImageUrl(recipe.image);
   return (
     <Link to={`/recipe/${recipe.slug}`} className="recipe-card">
+      <img className="recipe-card-image" src={imageSrc} alt={recipe.title} loading="lazy" />
+
       <div className="card-top">
         <div className="badges">
           <span className={`badge badge-${recipe.status}`}>{recipe.status}</span>

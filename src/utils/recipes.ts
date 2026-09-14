@@ -26,6 +26,12 @@ export function getRecipeBySlug(slug: string): Recipe | undefined {
   return allRecipes.find((r) => r.slug === slug || r.id === slug);
 }
 
+export function getRecipeImageUrl(image: string): string {
+  if (/^https?:\/\//.test(image)) return image;
+  const normalized = image.startsWith('/') ? image.slice(1) : image;
+  return `${import.meta.env.BASE_URL}${normalized}`;
+}
+
 export function getAllTags(recipes: Recipe[] = allRecipes): string[] {
   const set = new Set<string>();
   recipes.forEach((r) => r.tags.forEach((t) => set.add(t)));
