@@ -1,11 +1,13 @@
 import type { Recipe, RecipeStatus } from '../types/recipe';
 import recipesData from '../data/recipes.json' with { type: 'json' };
 import recipesExtra1 from '../data/recipes-extra1.json' with { type: 'json' };
+import recipesExtra1b from '../data/recipes-extra1b.json' with { type: 'json' };
 import recipesExtra2 from '../data/recipes-extra2.json' with { type: 'json' };
 
 export const allRecipes = [
   ...(recipesData as Recipe[]),
   ...(recipesExtra1 as Recipe[]),
+  ...(recipesExtra1b as Recipe[]),
   ...(recipesExtra2 as Recipe[]),
 ];
 
