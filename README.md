@@ -24,9 +24,18 @@ For GitHub Pages project hosting, the app uses Vite `base: '/chefs-cookbook/'` a
 
 ## Deploy
 
-Pushes to `main` run `.github/workflows/deploy-pages.yml` (build + GitHub Pages).
+The public site is deployed at **https://fjfighter.github.io/chefs-cookbook/**.
 
-One-time setup if Pages is not already wired: **Settings → Pages → Source = GitHub Actions**.
+Every push to `main` runs `.github/workflows/deploy-pages.yml`:
+
+1. installs dependencies with `npm ci` using the committed `package-lock.json`
+2. builds the Vite app with `npm run build`
+3. configures GitHub Pages for Actions-based deploys
+4. uploads `dist/` and deploys it with `actions/deploy-pages`
+
+For GitHub Pages project hosting, the app uses Vite `base: '/chefs-cookbook/'` and React Router `basename="/chefs-cookbook"`. The build also copies `dist/index.html` to `dist/404.html` so direct links to app routes load the SPA fallback.
+
+If Pages is not already wired, use **Settings → Pages → Source = GitHub Actions**. The deploy workflow also runs `actions/configure-pages` with `pages: write` permission so Pages can be enabled/configured during deployment.
 
 ## Seed recipes
 
