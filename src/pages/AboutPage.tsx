@@ -14,9 +14,27 @@ export default function AboutPage() {
         <p style={{ color: 'var(--text-muted)' }}>
           A polished local website over the markdown recipe archive at{' '}
           <code style={{ color: 'var(--accent)' }}>/home/box/recipes/</code>. Browse
-          cards, open full recipes with ingredients / steps / substitutions, check
-          estimated Nutrition Facts, and peek at dashboard charts.
+          viral finds, technique formulas, and Chef recommendations — with macros
+          and dashboard charts on the recipe side.
         </p>
+      </div>
+
+      <div className="panel" style={{ marginBottom: '1.15rem' }}>
+        <h2>Lanes</h2>
+        <ul>
+          <li>
+            <Link to="/"><strong>Recipes</strong></Link> — viral / library browse
+            (wishlist · tried · inbox)
+          </li>
+          <li>
+            <Link to="/techniques"><strong>Techniques</strong></Link> — skill
+            formulas Chef uses when improvising
+          </li>
+          <li>
+            <Link to="/recommendations"><strong>Recommendations</strong></Link> —
+            fridge haul / ask-Chef suggestions (empty until first ones land)
+          </li>
+        </ul>
       </div>
 
       <div className="panel" style={{ marginBottom: '1.15rem' }}>
