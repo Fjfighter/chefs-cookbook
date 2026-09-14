@@ -1,7 +1,13 @@
 import type { Recipe, RecipeStatus } from '../types/recipe';
 import recipesData from '../data/recipes.json' with { type: 'json' };
+import recipesExtra1 from '../data/recipes-extra1.json' with { type: 'json' };
+import recipesExtra2 from '../data/recipes-extra2.json' with { type: 'json' };
 
-export const allRecipes = recipesData as Recipe[];
+export const allRecipes = [
+  ...(recipesData as Recipe[]),
+  ...(recipesExtra1 as Recipe[]),
+  ...(recipesExtra2 as Recipe[]),
+];
 
 export function getRecipeBySlug(slug: string): Recipe | undefined {
   return allRecipes.find((r) => r.slug === slug || r.id === slug);
