@@ -32,6 +32,16 @@ export default function Layout() {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/techniques" onClick={() => setOpen(false)}>
+                Techniques
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/recommendations" onClick={() => setOpen(false)}>
+                Recommendations
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/dashboard" onClick={() => setOpen(false)}>
                 Dashboard
               </NavLink>
