@@ -4,12 +4,23 @@ import recipesExtra1 from '../data/recipes-extra1.json' with { type: 'json' };
 import recipesExtra1b from '../data/recipes-extra1b.json' with { type: 'json' };
 import recipesExtra2 from '../data/recipes-extra2.json' with { type: 'json' };
 
-export const allRecipes = [
-  ...(recipesData as Recipe[]),
-  ...(recipesExtra1 as Recipe[]),
-  ...(recipesExtra1b as Recipe[]),
-  ...(recipesExtra2 as Recipe[]),
-];
+function mergeRecipesBySlug(...lists: Recipe[][]): Recipe[] {
+  const bySlug = new Map<string, Recipe>();
+  for (const list of lists) {
+    for (const recipe of list) {
+      const key = recipe.slug || recipe.id;
+      if (!bySlug.has(key)) bySlug.set(key, recipe);
+    }
+  }
+  return Array.from(bySlug.values());
+}
+
+export const allRecipes = mergeRecipesBySlug(
+  recipesData as Recipe[],
+  recipesExtra1 as Recipe[],
+  recipesExtra1b as Recipe[],
+  recipesExtra2 as Recipe[]
+);
 
 export function getRecipeBySlug(slug: string): Recipe | undefined {
   return allRecipes.find((r) => r.slug === slug || r.id === slug);
