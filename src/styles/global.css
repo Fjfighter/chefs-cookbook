@@ -298,6 +298,16 @@ main { flex: 1; padding: 1.75rem 0 3rem; }
   text-decoration: none;
 }
 
+.recipe-card-image {
+  width: calc(100% + 2.5rem);
+  height: 185px;
+  margin: -1.25rem -1.25rem 0;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
 .card-top {
   display: flex;
   justify-content: space-between;
@@ -424,6 +434,28 @@ main { flex: 1; padding: 1.75rem 0 3rem; }
   color: var(--text-muted);
   font-size: 1.05rem;
   max-width: 40rem;
+}
+
+.recipe-hero-photo {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.recipe-hero-photo img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-elevated);
+}
+
+.recipe-hero-photo figcaption {
+  padding: 0.6rem 0.85rem;
+  color: var(--text-dim);
+  font-size: 0.76rem;
 }
 
 .panel {

@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import NutritionPanel from '../components/NutritionPanel';
-import { formatStars, getRecipeBySlug } from '../utils/recipes';
+import { formatStars, getRecipeBySlug, getRecipeImageUrl } from '../utils/recipes';
 
 export default function RecipeDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -18,6 +18,8 @@ export default function RecipeDetailPage() {
     );
   }
 
+  const imageSrc = getRecipeImageUrl(recipe.image);
+
   return (
     <>
       <Link to="/" className="back-link">
@@ -26,6 +28,22 @@ export default function RecipeDetailPage() {
 
       <div className="detail-layout">
         <div className="detail-main">
+          <figure className="recipe-hero-photo">
+            <img src={imageSrc} alt={recipe.title} />
+            {recipe.imageCredit && (
+              <figcaption>
+                Reference photo:{' '}
+                {recipe.imageSource ? (
+                  <a href={recipe.imageSource} target="_blank" rel="noopener noreferrer">
+                    {recipe.imageCredit}
+                  </a>
+                ) : (
+                  recipe.imageCredit
+                )}
+              </figcaption>
+            )}
+          </figure>
+
           <header className="detail-header">
             <div className="badges">
               <span className={`badge badge-${recipe.status}`}>{recipe.status}</span>

@@ -22,6 +22,9 @@ export interface Recipe {
   status: RecipeStatus;
   rating: number | null;
   isSample: boolean;
+  image: string;
+  imageCredit?: string;
+  imageSource?: string;
   source: string | null;
   sourceBlog: string | null;
   sourceType: string;
