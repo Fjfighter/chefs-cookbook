@@ -34,7 +34,7 @@ Every push to `main` runs `.github/workflows/deploy-pages.yml`:
 
 For GitHub Pages project hosting, the app uses Vite `base: '/chefs-cookbook/'` and React Router `basename="/chefs-cookbook"`. The build also copies `dist/index.html` to `dist/404.html` so direct links to app routes load the SPA fallback.
 
-One-time repository setup: use **Settings → Pages → Source = GitHub Actions**. GitHub's workflow token can deploy after Pages is enabled, but it cannot create the initial Pages site for this repo.
+Pages source is set to **GitHub Actions** (enabled 2026-09-14).
 
 ## Seed recipes
 
