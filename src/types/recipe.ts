@@ -1,4 +1,4 @@
-export type RecipeStatus = 'wishlist' | 'tried' | 'inbox';
+export type RecipeStatus = 'wishlist' | 'tried' | 'inbox' | 'cook-tonight';
 
 export interface IngredientSection {
   section: string;

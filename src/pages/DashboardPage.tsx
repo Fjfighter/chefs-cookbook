@@ -39,6 +39,7 @@ export default function DashboardPage() {
 
   const statusData = [
     { name: 'Wishlist', value: counts.wishlist, fill: '#d4a84b' },
+    { name: 'Cook tonight', value: counts.cookTonight, fill: '#7eb6d9' },
     { name: 'Tried', value: counts.tried, fill: '#8fbc8f' },
     { name: 'Inbox', value: counts.inbox, fill: '#d4899a' },
   ].filter((d) => d.value > 0);
