@@ -45,7 +45,7 @@ export default function RecommendationsPage() {
       ) : (
         <div className="recipe-grid">
           {allRecommendations.map((r) => (
-            <div key={r.id} className="recipe-card" style={{ cursor: 'default' }}>
+            <Link key={r.id} to={`/recipe/${r.slug}`} className="recipe-card">
               <div className="card-top">
                 <div className="badges">
                   <span className="badge badge-tried">{r.status || 'suggested'}</span>
@@ -56,7 +56,7 @@ export default function RecommendationsPage() {
               <div className="card-meta">
                 <span>{r.date}</span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}

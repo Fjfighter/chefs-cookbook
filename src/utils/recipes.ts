@@ -3,6 +3,7 @@ import recipesData from '../data/recipes.json' with { type: 'json' };
 import recipesExtra1 from '../data/recipes-extra1.json' with { type: 'json' };
 import recipesExtra1b from '../data/recipes-extra1b.json' with { type: 'json' };
 import recipesExtra2 from '../data/recipes-extra2.json' with { type: 'json' };
+import recipesExtra3 from '../data/recipes-extra3.json' with { type: 'json' };
 
 function mergeRecipesBySlug(...lists: Recipe[][]): Recipe[] {
   const bySlug = new Map<string, Recipe>();
@@ -19,7 +20,8 @@ export const allRecipes = mergeRecipesBySlug(
   recipesData as Recipe[],
   recipesExtra1 as Recipe[],
   recipesExtra1b as Recipe[],
-  recipesExtra2 as Recipe[]
+  recipesExtra2 as Recipe[],
+  recipesExtra3 as Recipe[]
 );
 
 export function getRecipeBySlug(slug: string): Recipe | undefined {
@@ -65,6 +67,7 @@ export function statusCounts(recipes: Recipe[] = allRecipes) {
     wishlist: recipes.filter((r) => r.status === 'wishlist').length,
     tried: recipes.filter((r) => r.status === 'tried').length,
     inbox: recipes.filter((r) => r.status === 'inbox').length,
+    cookTonight: recipes.filter((r) => r.status === 'cook-tonight').length,
     total: recipes.length,
   };
 }

@@ -42,14 +42,14 @@ export default function BrowsePage() {
         </div>
 
         <div className="filter-pills" role="group" aria-label="Status filter">
-          {(['all', 'wishlist', 'tried', 'inbox'] as StatusFilter[]).map((s) => (
+          {(['all', 'wishlist', 'cook-tonight', 'tried', 'inbox'] as StatusFilter[]).map((s) => (
             <button
               key={s}
               type="button"
               className={`pill ${status === s ? 'active' : ''}`}
               onClick={() => setStatus(s)}
             >
-              {s === 'all' ? 'All' : s}
+              {s === 'all' ? 'All' : s === 'cook-tonight' ? 'Cook tonight' : s}
             </button>
           ))}
         </div>

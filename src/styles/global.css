@@ -329,6 +329,7 @@ main { flex: 1; padding: 1.75rem 0 3rem; }
 .badge-wishlist { background: var(--gold-soft); color: var(--gold); }
 .badge-tried { background: var(--sage-soft); color: var(--sage); }
 .badge-inbox { background: var(--rose-soft); color: var(--rose); }
+.badge-cook-tonight { background: rgba(126, 182, 217, 0.2); color: #7eb6d9; }
 .badge-sample { background: rgba(180, 160, 200, 0.18); color: #c4b0d8; }
 .badge-adapt { background: var(--accent-soft); color: var(--accent); }
 
